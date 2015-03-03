@@ -6,7 +6,7 @@
 <setting alwaysvectorfont="no"/>
 <setting verticaltext="up"/>
 </settings>
-<grid distance="0.05" unitdist="inch" unit="inch" style="lines" multiple="1" display="yes" altdistance="0.005" altunitdist="inch" altunit="inch"/>
+<grid distance="0.1" unitdist="inch" unit="inch" style="lines" multiple="1" display="no" altdistance="0.01" altunitdist="inch" altunit="inch"/>
 <layers>
 <layer number="1" name="Top" color="4" fill="1" visible="no" active="no"/>
 <layer number="16" name="Bottom" color="1" fill="1" visible="no" active="no"/>
@@ -4352,20 +4352,6 @@ Matches 4UCONN part # 11026&lt;br&gt;
 <pin name="3" x="5.08" y="2.54" visible="pad" length="middle" direction="pas" swaplevel="1" rot="R180"/>
 <pin name="4" x="5.08" y="5.08" visible="pad" length="middle" direction="pas" swaplevel="1" rot="R180"/>
 </symbol>
-<symbol name="M03">
-<wire x1="3.81" y1="-5.08" x2="-2.54" y2="-5.08" width="0.4064" layer="94"/>
-<wire x1="1.27" y1="2.54" x2="2.54" y2="2.54" width="0.6096" layer="94"/>
-<wire x1="1.27" y1="0" x2="2.54" y2="0" width="0.6096" layer="94"/>
-<wire x1="1.27" y1="-2.54" x2="2.54" y2="-2.54" width="0.6096" layer="94"/>
-<wire x1="-2.54" y1="5.08" x2="-2.54" y2="-5.08" width="0.4064" layer="94"/>
-<wire x1="3.81" y1="-5.08" x2="3.81" y2="5.08" width="0.4064" layer="94"/>
-<wire x1="-2.54" y1="5.08" x2="3.81" y2="5.08" width="0.4064" layer="94"/>
-<text x="-2.54" y="-7.62" size="1.778" layer="96">&gt;VALUE</text>
-<text x="-2.54" y="5.842" size="1.778" layer="95">&gt;NAME</text>
-<pin name="1" x="7.62" y="-2.54" visible="pad" length="middle" direction="pas" swaplevel="1" rot="R180"/>
-<pin name="2" x="7.62" y="0" visible="pad" length="middle" direction="pas" swaplevel="1" rot="R180"/>
-<pin name="3" x="7.62" y="2.54" visible="pad" length="middle" direction="pas" swaplevel="1" rot="R180"/>
-</symbol>
 <symbol name="I2C_STANDARD">
 <wire x1="6.35" y1="0" x2="-2.54" y2="0" width="0.4064" layer="94"/>
 <wire x1="3.81" y1="7.62" x2="5.08" y2="7.62" width="0.6096" layer="94"/>
@@ -4385,6 +4371,20 @@ Matches 4UCONN part # 11026&lt;br&gt;
 <text x="-2.032" y="5.08" size="1.778" layer="94" align="center-left">VCC</text>
 <text x="-2.032" y="2.54" size="1.778" layer="94" align="center-left">GND</text>
 <text x="-2.032" y="10.16" size="1.778" layer="94" align="center-left">SCL</text>
+</symbol>
+<symbol name="M03">
+<wire x1="3.81" y1="-5.08" x2="-2.54" y2="-5.08" width="0.4064" layer="94"/>
+<wire x1="1.27" y1="2.54" x2="2.54" y2="2.54" width="0.6096" layer="94"/>
+<wire x1="1.27" y1="0" x2="2.54" y2="0" width="0.6096" layer="94"/>
+<wire x1="1.27" y1="-2.54" x2="2.54" y2="-2.54" width="0.6096" layer="94"/>
+<wire x1="-2.54" y1="5.08" x2="-2.54" y2="-5.08" width="0.4064" layer="94"/>
+<wire x1="3.81" y1="-5.08" x2="3.81" y2="5.08" width="0.4064" layer="94"/>
+<wire x1="-2.54" y1="5.08" x2="3.81" y2="5.08" width="0.4064" layer="94"/>
+<text x="-2.54" y="-7.62" size="1.778" layer="96">&gt;VALUE</text>
+<text x="-2.54" y="5.842" size="1.778" layer="95">&gt;NAME</text>
+<pin name="1" x="7.62" y="-2.54" visible="pad" length="middle" direction="pas" swaplevel="1" rot="R180"/>
+<pin name="2" x="7.62" y="0" visible="pad" length="middle" direction="pas" swaplevel="1" rot="R180"/>
+<pin name="3" x="7.62" y="2.54" visible="pad" length="middle" direction="pas" swaplevel="1" rot="R180"/>
 </symbol>
 </symbols>
 <devicesets>
@@ -5434,6 +5434,28 @@ Standard 4-pin 0.1" header. Use with straight break away headers (SKU : PRT-0011
 </device>
 </devices>
 </deviceset>
+<deviceset name="I2C_STANDARD" prefix="JP" uservalue="yes">
+<description>SparkFun has standardized on a pinout for all I&lt;sup&gt;2&lt;/sup&gt;C based sensor breakouts.&lt;br&gt;
+&lt;br&gt;
+This pinout allows I&lt;sup&gt;2&lt;/sup&gt;C boards to be plugged directly into the headers on Arduino Uno compatible boards, and
+to be daisy chained easily.</description>
+<gates>
+<gate name="G$1" symbol="I2C_STANDARD" x="2.54" y="0"/>
+</gates>
+<devices>
+<device name="" package="1X04">
+<connects>
+<connect gate="G$1" pin="1" pad="1"/>
+<connect gate="G$1" pin="2" pad="2"/>
+<connect gate="G$1" pin="3" pad="3"/>
+<connect gate="G$1" pin="4" pad="4"/>
+</connects>
+<technologies>
+<technology name=""/>
+</technologies>
+</device>
+</devices>
+</deviceset>
 <deviceset name="M03" prefix="JP" uservalue="yes">
 <description>&lt;b&gt;Header 3&lt;/b&gt;
 Standard 3-pin 0.1" header. Use with straight break away headers (SKU : PRT-00116), right angle break away headers (PRT-00553), swiss pins (PRT-00743), machine pins (PRT-00117), and female headers (PRT-00115). Molex polarized connector foot print use with SKU : PRT-08232 with associated crimp pins and housings.</description>
@@ -5655,28 +5677,6 @@ Standard 3-pin 0.1" header. Use with straight break away headers (SKU : PRT-0011
 <connect gate="G$1" pin="1" pad="1"/>
 <connect gate="G$1" pin="2" pad="2"/>
 <connect gate="G$1" pin="3" pad="3"/>
-</connects>
-<technologies>
-<technology name=""/>
-</technologies>
-</device>
-</devices>
-</deviceset>
-<deviceset name="I2C_STANDARD" prefix="JP" uservalue="yes">
-<description>SparkFun has standardized on a pinout for all I&lt;sup&gt;2&lt;/sup&gt;C based sensor breakouts.&lt;br&gt;
-&lt;br&gt;
-This pinout allows I&lt;sup&gt;2&lt;/sup&gt;C boards to be plugged directly into the headers on Arduino Uno compatible boards, and
-to be daisy chained easily.</description>
-<gates>
-<gate name="G$1" symbol="I2C_STANDARD" x="2.54" y="0"/>
-</gates>
-<devices>
-<device name="" package="1X04">
-<connects>
-<connect gate="G$1" pin="1" pad="1"/>
-<connect gate="G$1" pin="2" pad="2"/>
-<connect gate="G$1" pin="3" pad="3"/>
-<connect gate="G$1" pin="4" pad="4"/>
 </connects>
 <technologies>
 <technology name=""/>
@@ -10198,7 +10198,6 @@ Source: http://www.bourns.com/data/global/PDFs/3223.PDF</description>
 <part name="C1" library="SparkFun-Capacitors" deviceset="CAP_POL" device="PTH1" value="10 uF"/>
 <part name="C2" library="SparkFun-Capacitors" deviceset="CAP_POL" device="PTH1" value="10 uF"/>
 <part name="IC2" library="ic-package" deviceset="DIL20" device="S"/>
-<part name="JP2" library="SparkFun-Connectors" deviceset="M06" device="LONGPADS"/>
 <part name="JP3" library="SparkFun-Connectors" deviceset="M10" device="LOCK_LONGPADS"/>
 <part name="JP4" library="SparkFun-Connectors" deviceset="M10" device="LOCK_LONGPADS"/>
 <part name="GND-ISO1" library="SparkFun-Aesthetics" deviceset="GND-ISO" device=""/>
@@ -10207,25 +10206,15 @@ Source: http://www.bourns.com/data/global/PDFs/3223.PDF</description>
 <part name="R6" library="SparkFun-Resistors" deviceset="RESISTOR" device="PTH-1/4W" value="330"/>
 <part name="C5" library="SparkFun-Capacitors" deviceset="0.1UF-50V-20%(PTH)" device="KIT-EZ" value=".1uF"/>
 <part name="C6" library="SparkFun-Capacitors" deviceset="0.1UF-50V-20%(PTH)" device="KIT-EZ" value=".1 uF"/>
-<part name="RIGHT_STEP_CONT" library="my-library" deviceset="POLOLU" device=""/>
-<part name="LEFT_STEP_CONT" library="my-library" deviceset="POLOLU" device=""/>
 <part name="BEC" library="SparkFun-Connectors" deviceset="M02" device="PTH"/>
-<part name="L_STEP" library="SparkFun-Connectors" deviceset="M04" device="LOCK"/>
-<part name="R_STEP" library="SparkFun-Connectors" deviceset="M04" device="LOCK"/>
-<part name="L_BUMP" library="SparkFun-Connectors" deviceset="M02" device="PTH"/>
-<part name="R_BUMP" library="SparkFun-Connectors" deviceset="M02" device="PTH"/>
-<part name="R1" library="SparkFun-Resistors" deviceset="RESISTOR" device="PTH-1/4W" value="1M"/>
-<part name="R2" library="SparkFun-Resistors" deviceset="RESISTOR" device="PTH-1/4W" value="1M"/>
-<part name="R_BUMPER" library="SparkFun-Connectors" deviceset="M03" device="PTH"/>
-<part name="L_BUMPER" library="SparkFun-Connectors" deviceset="M03" device="PTH"/>
 <part name="Q1" library="transistor-fet" deviceset="IRF510" device=""/>
 <part name="Q2" library="transistor-fet" deviceset="IRF510" device=""/>
 <part name="B_MOTOR" library="SparkFun-Connectors" deviceset="M02" device="PTH"/>
 <part name="T_MOTOR" library="SparkFun-Connectors" deviceset="M02" device="PTH"/>
 <part name="D1" library="diode" deviceset="1N581*" device="" technology="7-B"/>
 <part name="D2" library="diode" deviceset="1N581*" device="" technology="7-B"/>
-<part name="R3" library="SparkFun-Resistors" deviceset="RESISTOR" device="PTH-1/4W" value="330"/>
-<part name="R7" library="SparkFun-Resistors" deviceset="RESISTOR" device="PTH-1/4W" value="330"/>
+<part name="R3" library="SparkFun-Resistors" deviceset="RESISTOR" device="PTH-1/4W" value="333"/>
+<part name="R7" library="SparkFun-Resistors" deviceset="RESISTOR" device="PTH-1/4W" value="332"/>
 <part name="JP5" library="SparkFun-Connectors" deviceset="I2C_STANDARD" device=""/>
 <part name="JP6" library="SparkFun-Connectors" deviceset="I2C_STANDARD" device=""/>
 <part name="TURRET" library="SparkFun-Electromechanical" deviceset="SMALL_SERVO" device=""/>
@@ -10235,6 +10224,15 @@ Source: http://www.bourns.com/data/global/PDFs/3223.PDF</description>
 <part name="R9" library="SparkFun-Resistors" deviceset="RESISTOR" device="PTH-1/4W" value="330"/>
 <part name="U1" library="SparkFun-PowerIC" deviceset="V_REG_317" device="SINK"/>
 <part name="R10" library="pot" deviceset="TRIM_US-" device="B25V"/>
+<part name="L_BUMP" library="SparkFun-Connectors" deviceset="M03" device="PTH"/>
+<part name="R_BUMP" library="SparkFun-Connectors" deviceset="M03" device="PTH"/>
+<part name="R1" library="SparkFun-Resistors" deviceset="RESISTOR" device="PTH-1/4W" value="331"/>
+<part name="R2" library="SparkFun-Resistors" deviceset="RESISTOR" device="PTH-1/4W" value="331"/>
+<part name="JP7" library="SparkFun-Connectors" deviceset="M06" device="SILK_FEMALE_PTH"/>
+<part name="R_STEP_CONT" library="my-library" deviceset="POLOLU" device=""/>
+<part name="L_STEP_CONT" library="my-library" deviceset="POLOLU" device=""/>
+<part name="R_STEPPER" library="SparkFun-Connectors" deviceset="M04" device="PTH"/>
+<part name="L_STEPPER" library="SparkFun-Connectors" deviceset="M04" device="PTH"/>
 </parts>
 <sheets>
 <sheet>
@@ -10247,7 +10245,6 @@ Source: http://www.bourns.com/data/global/PDFs/3223.PDF</description>
 <instance part="C1" gate="G$1" x="53.34" y="393.7"/>
 <instance part="C2" gate="G$1" x="88.9" y="396.24"/>
 <instance part="IC2" gate="G$1" x="66.04" y="445.77"/>
-<instance part="JP2" gate="G$1" x="52.07" y="494.03"/>
 <instance part="JP3" gate="G$1" x="96.52" y="438.15" rot="R180"/>
 <instance part="JP4" gate="G$1" x="38.1" y="450.85"/>
 <instance part="GND-ISO1" gate="G$1" x="71.12" y="370.84"/>
@@ -10256,17 +10253,7 @@ Source: http://www.bourns.com/data/global/PDFs/3223.PDF</description>
 <instance part="R6" gate="G$1" x="101.6" y="386.08" rot="R270"/>
 <instance part="C5" gate="G$1" x="104.14" y="458.47"/>
 <instance part="C6" gate="G$1" x="25.4" y="458.47"/>
-<instance part="RIGHT_STEP_CONT" gate="G$1" x="167.64" y="411.48"/>
-<instance part="LEFT_STEP_CONT" gate="G$1" x="167.64" y="381"/>
 <instance part="BEC" gate="G$1" x="15.24" y="411.48"/>
-<instance part="L_STEP" gate="G$1" x="205.74" y="381" rot="R180"/>
-<instance part="R_STEP" gate="G$1" x="205.74" y="411.48" rot="R180"/>
-<instance part="L_BUMP" gate="G$1" x="276.86" y="384.81" rot="R180"/>
-<instance part="R_BUMP" gate="G$1" x="276.86" y="403.86" rot="R180"/>
-<instance part="R1" gate="G$1" x="256.54" y="377.19" rot="R270"/>
-<instance part="R2" gate="G$1" x="256.54" y="396.24" rot="R270"/>
-<instance part="R_BUMPER" gate="G$1" x="306.07" y="403.86" rot="R180"/>
-<instance part="L_BUMPER" gate="G$1" x="306.07" y="384.81" rot="R180"/>
 <instance part="Q1" gate="G$1" x="163.83" y="477.52"/>
 <instance part="Q2" gate="G$1" x="163.83" y="447.04"/>
 <instance part="B_MOTOR" gate="G$1" x="209.55" y="452.12" rot="R180"/>
@@ -10278,12 +10265,21 @@ Source: http://www.bourns.com/data/global/PDFs/3223.PDF</description>
 <instance part="JP5" gate="G$1" x="285.75" y="453.39" rot="R180"/>
 <instance part="JP6" gate="G$1" x="284.48" y="433.07" rot="R180"/>
 <instance part="TURRET" gate="G$1" x="274.32" y="495.3" rot="R180"/>
-<instance part="SOLENOID" gate="G$1" x="290.83" y="652.78" rot="R180"/>
-<instance part="Q3" gate="G$1" x="256.54" y="647.7"/>
-<instance part="D3" gate="G$1" x="273.05" y="652.78" rot="R90"/>
-<instance part="R9" gate="G$1" x="237.49" y="645.16"/>
+<instance part="SOLENOID" gate="G$1" x="204.47" y="528.32" rot="R180"/>
+<instance part="Q3" gate="G$1" x="170.18" y="523.24"/>
+<instance part="D3" gate="G$1" x="186.69" y="528.32" rot="R90"/>
+<instance part="R9" gate="G$1" x="151.13" y="520.7"/>
 <instance part="U1" gate="G$1" x="71.12" y="398.78"/>
 <instance part="R10" gate="G$1" x="204.47" y="497.84" rot="R180"/>
+<instance part="L_BUMP" gate="G$1" x="279.4" y="406.4" rot="R180"/>
+<instance part="R_BUMP" gate="G$1" x="279.4" y="386.08" rot="R180"/>
+<instance part="R1" gate="G$1" x="251.46" y="388.62"/>
+<instance part="R2" gate="G$1" x="251.46" y="408.94"/>
+<instance part="JP7" gate="G$1" x="88.9" y="492.76"/>
+<instance part="R_STEP_CONT" gate="G$1" x="170.18" y="347.98"/>
+<instance part="L_STEP_CONT" gate="G$1" x="170.18" y="317.5"/>
+<instance part="R_STEPPER" gate="G$1" x="205.74" y="347.98" rot="R180"/>
+<instance part="L_STEPPER" gate="G$1" x="205.74" y="317.5" rot="R180"/>
 </instances>
 <busses>
 </busses>
@@ -10304,14 +10300,14 @@ Source: http://www.bourns.com/data/global/PDFs/3223.PDF</description>
 <label x="55.88" y="448.31" size="1.778" layer="95" rot="R180"/>
 </segment>
 <segment>
-<pinref part="JP2" gate="G$1" pin="4"/>
-<wire x1="57.15" y1="496.57" x2="67.31" y2="496.57" width="0.1524" layer="91"/>
-<label x="67.31" y="496.57" size="1.778" layer="95"/>
-</segment>
-<segment>
 <pinref part="TURRET" gate="G$1" pin="SIG"/>
 <wire x1="271.78" y1="495.3" x2="265.43" y2="495.3" width="0.1524" layer="91"/>
 <label x="261.62" y="495.3" size="1.778" layer="95"/>
+</segment>
+<segment>
+<pinref part="JP7" gate="G$1" pin="4"/>
+<wire x1="93.98" y1="495.3" x2="99.06" y2="495.3" width="0.1524" layer="91"/>
+<label x="99.06" y="495.3" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="RB1" class="0">
@@ -10322,19 +10318,19 @@ Source: http://www.bourns.com/data/global/PDFs/3223.PDF</description>
 <label x="55.88" y="445.77" size="1.778" layer="95" rot="R180"/>
 </segment>
 <segment>
-<pinref part="JP2" gate="G$1" pin="5"/>
-<wire x1="57.15" y1="499.11" x2="72.39" y2="499.11" width="0.1524" layer="91"/>
-<label x="72.39" y="499.11" size="1.778" layer="95"/>
+<pinref part="JP7" gate="G$1" pin="5"/>
+<wire x1="93.98" y1="497.84" x2="99.06" y2="497.84" width="0.1524" layer="91"/>
+<label x="99.06" y="497.84" size="1.778" layer="95"/>
 </segment>
 <segment>
-<pinref part="LEFT_STEP_CONT" gate="G$1" pin="STEP"/>
-<label x="142.24" y="373.38" size="1.778" layer="95"/>
-<pinref part="RIGHT_STEP_CONT" gate="G$1" pin="STEP"/>
-<wire x1="154.94" y1="403.86" x2="147.32" y2="403.86" width="0.1524" layer="91"/>
-<wire x1="147.32" y1="403.86" x2="147.32" y2="373.38" width="0.1524" layer="91"/>
-<wire x1="147.32" y1="373.38" x2="154.94" y2="373.38" width="0.1524" layer="91"/>
-<wire x1="147.32" y1="373.38" x2="144.78" y2="373.38" width="0.1524" layer="91"/>
-<junction x="147.32" y="373.38"/>
+<pinref part="R_STEP_CONT" gate="G$1" pin="STEP"/>
+<wire x1="157.48" y1="340.36" x2="147.32" y2="340.36" width="0.1524" layer="91"/>
+<pinref part="L_STEP_CONT" gate="G$1" pin="STEP"/>
+<wire x1="157.48" y1="309.88" x2="147.32" y2="309.88" width="0.1524" layer="91"/>
+<wire x1="147.32" y1="309.88" x2="144.78" y2="309.88" width="0.1524" layer="91"/>
+<wire x1="147.32" y1="340.36" x2="147.32" y2="309.88" width="0.1524" layer="91"/>
+<junction x="147.32" y="309.88"/>
+<label x="139.7" y="309.88" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="RB2" class="0">
@@ -10375,8 +10371,8 @@ Source: http://www.bourns.com/data/global/PDFs/3223.PDF</description>
 </segment>
 <segment>
 <pinref part="R9" gate="G$1" pin="1"/>
-<wire x1="232.41" y1="645.16" x2="226.06" y2="645.16" width="0.1524" layer="91"/>
-<label x="226.06" y="645.16" size="1.778" layer="95"/>
+<wire x1="146.05" y1="520.7" x2="139.7" y2="520.7" width="0.1524" layer="91"/>
+<label x="139.7" y="520.7" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="RA4" class="0">
@@ -10387,17 +10383,11 @@ Source: http://www.bourns.com/data/global/PDFs/3223.PDF</description>
 <label x="55.88" y="433.07" size="1.778" layer="95" rot="R180"/>
 </segment>
 <segment>
-<pinref part="R_BUMP" gate="G$1" pin="2"/>
-<pinref part="R2" gate="G$1" pin="1"/>
-<wire x1="269.24" y1="401.32" x2="256.54" y2="401.32" width="0.1524" layer="91"/>
-<wire x1="256.54" y1="401.32" x2="250.19" y2="401.32" width="0.1524" layer="91"/>
-<junction x="256.54" y="401.32"/>
-<label x="247.65" y="401.32" size="1.778" layer="95"/>
-</segment>
-<segment>
-<pinref part="R_BUMPER" gate="G$1" pin="1"/>
-<wire x1="295.91" y1="406.4" x2="298.45" y2="406.4" width="0.1524" layer="91"/>
-<label x="293.37" y="406.4" size="1.778" layer="95"/>
+<pinref part="L_BUMP" gate="G$1" pin="1"/>
+<wire x1="266.7" y1="408.94" x2="271.78" y2="408.94" width="0.2032" layer="91"/>
+<label x="266.7" y="408.94" size="1.778" layer="95" rot="R180"/>
+<pinref part="R2" gate="G$1" pin="2"/>
+<wire x1="256.54" y1="408.94" x2="266.7" y2="408.94" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="RB7" class="0">
@@ -10455,17 +10445,16 @@ Source: http://www.bourns.com/data/global/PDFs/3223.PDF</description>
 <label x="83.82" y="443.23" size="1.778" layer="95" rot="R180"/>
 </segment>
 <segment>
-<pinref part="L_BUMP" gate="G$1" pin="2"/>
-<pinref part="R1" gate="G$1" pin="1"/>
-<wire x1="269.24" y1="382.27" x2="256.54" y2="382.27" width="0.1524" layer="91"/>
-<wire x1="256.54" y1="382.27" x2="251.46" y2="382.27" width="0.1524" layer="91"/>
-<junction x="256.54" y="382.27"/>
-<label x="247.65" y="382.27" size="1.778" layer="95"/>
+<pinref part="R_BUMP" gate="G$1" pin="1"/>
+<wire x1="271.78" y1="388.62" x2="266.7" y2="388.62" width="0.2032" layer="91"/>
+<label x="266.7" y="388.62" size="1.778" layer="95" rot="R180"/>
+<pinref part="R1" gate="G$1" pin="2"/>
+<wire x1="256.54" y1="388.62" x2="266.7" y2="388.62" width="0.1524" layer="91"/>
 </segment>
 <segment>
-<pinref part="L_BUMPER" gate="G$1" pin="1"/>
-<wire x1="298.45" y1="387.35" x2="295.91" y2="387.35" width="0.1524" layer="91"/>
-<label x="293.37" y="387.35" size="1.778" layer="95"/>
+<pinref part="R_STEP_CONT" gate="G$1" pin="DIR"/>
+<wire x1="157.48" y1="337.82" x2="154.94" y2="337.82" width="0.1524" layer="91"/>
+<label x="149.86" y="337.82" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="RB13" class="0">
@@ -10474,11 +10463,6 @@ Source: http://www.bourns.com/data/global/PDFs/3223.PDF</description>
 <pinref part="JP3" gate="G$1" pin="5"/>
 <wire x1="73.66" y1="445.77" x2="86.36" y2="445.77" width="0.2032" layer="91"/>
 <label x="83.82" y="445.77" size="1.778" layer="95" rot="R180"/>
-</segment>
-<segment>
-<pinref part="RIGHT_STEP_CONT" gate="G$1" pin="DIR"/>
-<wire x1="154.94" y1="401.32" x2="152.4" y2="401.32" width="0.1524" layer="91"/>
-<label x="148.59" y="401.32" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="RB14" class="0">
@@ -10489,9 +10473,9 @@ Source: http://www.bourns.com/data/global/PDFs/3223.PDF</description>
 <label x="83.82" y="448.31" size="1.778" layer="95" rot="R180"/>
 </segment>
 <segment>
-<pinref part="LEFT_STEP_CONT" gate="G$1" pin="DIR"/>
-<wire x1="154.94" y1="370.84" x2="152.4" y2="370.84" width="0.1524" layer="91"/>
-<label x="148.59" y="370.84" size="1.778" layer="95"/>
+<pinref part="L_STEP_CONT" gate="G$1" pin="DIR"/>
+<wire x1="157.48" y1="307.34" x2="154.94" y2="307.34" width="0.1524" layer="91"/>
+<label x="149.86" y="307.34" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="RB15" class="0">
@@ -10509,11 +10493,6 @@ Source: http://www.bourns.com/data/global/PDFs/3223.PDF</description>
 </net>
 <net name="MCLR" class="0">
 <segment>
-<pinref part="JP2" gate="G$1" pin="1"/>
-<wire x1="57.15" y1="488.95" x2="72.39" y2="488.95" width="0.1524" layer="91"/>
-<label x="72.39" y="488.95" size="1.778" layer="95"/>
-</segment>
-<segment>
 <pinref part="JP4" gate="G$1" pin="10"/>
 <pinref part="IC2" gate="G$1" pin="1"/>
 <wire x1="48.26" y1="455.93" x2="58.42" y2="455.93" width="0.2032" layer="91"/>
@@ -10523,13 +10502,13 @@ Source: http://www.bourns.com/data/global/PDFs/3223.PDF</description>
 <wire x1="48.26" y1="468.63" x2="38.1" y2="468.63" width="0.1524" layer="91"/>
 <pinref part="R4" gate="G$1" pin="2"/>
 </segment>
+<segment>
+<pinref part="JP7" gate="G$1" pin="1"/>
+<wire x1="93.98" y1="487.68" x2="99.06" y2="487.68" width="0.1524" layer="91"/>
+<label x="99.06" y="487.68" size="1.778" layer="95"/>
+</segment>
 </net>
 <net name="VDD" class="0">
-<segment>
-<pinref part="JP2" gate="G$1" pin="2"/>
-<wire x1="57.15" y1="491.49" x2="72.39" y2="491.49" width="0.1524" layer="91"/>
-<label x="72.39" y="491.49" size="1.778" layer="95"/>
-</segment>
 <segment>
 <pinref part="IC2" gate="G$1" pin="20"/>
 <pinref part="JP3" gate="G$1" pin="1"/>
@@ -10564,24 +10543,34 @@ Source: http://www.bourns.com/data/global/PDFs/3223.PDF</description>
 <pinref part="JP5" gate="G$1" pin="2"/>
 </segment>
 <segment>
-<pinref part="R_BUMP" gate="G$1" pin="1"/>
-<wire x1="269.24" y1="403.86" x2="266.7" y2="403.86" width="0.1524" layer="91"/>
-<label x="262.89" y="403.86" size="1.778" layer="95"/>
+<pinref part="L_BUMP" gate="G$1" pin="2"/>
+<wire x1="271.78" y1="406.4" x2="266.7" y2="406.4" width="0.2032" layer="91"/>
+<label x="266.7" y="406.4" size="1.778" layer="95" rot="R180"/>
+<pinref part="R2" gate="G$1" pin="1"/>
+<wire x1="246.38" y1="408.94" x2="246.38" y2="406.4" width="0.1524" layer="91"/>
+<wire x1="246.38" y1="406.4" x2="266.7" y2="406.4" width="0.1524" layer="91"/>
 </segment>
 <segment>
-<pinref part="L_BUMP" gate="G$1" pin="1"/>
-<wire x1="269.24" y1="384.81" x2="266.7" y2="384.81" width="0.1524" layer="91"/>
-<label x="262.89" y="384.81" size="1.778" layer="95"/>
+<pinref part="R_BUMP" gate="G$1" pin="2"/>
+<label x="266.7" y="386.08" size="1.778" layer="95" rot="R180"/>
+<pinref part="R1" gate="G$1" pin="1"/>
+<wire x1="246.38" y1="388.62" x2="246.38" y2="386.08" width="0.1524" layer="91"/>
+<wire x1="246.38" y1="386.08" x2="271.78" y2="386.08" width="0.1524" layer="91"/>
 </segment>
 <segment>
-<pinref part="RIGHT_STEP_CONT" gate="G$1" pin="SLP"/>
-<wire x1="154.94" y1="406.4" x2="152.4" y2="406.4" width="0.1524" layer="91"/>
-<label x="148.59" y="406.4" size="1.778" layer="95"/>
+<pinref part="JP7" gate="G$1" pin="2"/>
+<wire x1="93.98" y1="490.22" x2="99.06" y2="490.22" width="0.1524" layer="91"/>
+<label x="99.06" y="490.22" size="1.778" layer="95"/>
 </segment>
 <segment>
-<pinref part="LEFT_STEP_CONT" gate="G$1" pin="SLP"/>
-<wire x1="154.94" y1="375.92" x2="152.4" y2="375.92" width="0.1524" layer="91"/>
-<label x="148.59" y="375.92" size="1.778" layer="95"/>
+<pinref part="L_STEP_CONT" gate="G$1" pin="SLP"/>
+<wire x1="157.48" y1="312.42" x2="154.94" y2="312.42" width="0.1524" layer="91"/>
+<label x="149.86" y="312.42" size="1.778" layer="95"/>
+</segment>
+<segment>
+<pinref part="R_STEP_CONT" gate="G$1" pin="SLP"/>
+<wire x1="157.48" y1="342.9" x2="154.94" y2="342.9" width="0.1524" layer="91"/>
+<label x="149.86" y="342.9" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="VSS(GND)" class="0">
@@ -10598,11 +10587,6 @@ Source: http://www.bourns.com/data/global/PDFs/3223.PDF</description>
 <wire x1="71.12" y1="388.62" x2="71.12" y2="373.38" width="0.1524" layer="91"/>
 <pinref part="U1" gate="G$1" pin="ADJ"/>
 <wire x1="71.12" y1="391.16" x2="71.12" y2="388.62" width="0.1524" layer="91"/>
-</segment>
-<segment>
-<pinref part="JP2" gate="G$1" pin="3"/>
-<wire x1="57.15" y1="494.03" x2="69.85" y2="494.03" width="0.1524" layer="91"/>
-<label x="69.85" y="494.03" size="1.778" layer="95"/>
 </segment>
 <segment>
 <wire x1="101.6" y1="381" x2="101.6" y2="378.46" width="0.1524" layer="91"/>
@@ -10629,40 +10613,15 @@ Source: http://www.bourns.com/data/global/PDFs/3223.PDF</description>
 <pinref part="JP1" gate="G$1" pin="GNDBREAK"/>
 <pinref part="JP1" gate="G$1" pin="GND"/>
 <wire x1="25.4" y1="396.24" x2="25.4" y2="393.7" width="0.1524" layer="91"/>
-<wire x1="25.4" y1="393.7" x2="25.4" y2="386.08" width="0.1524" layer="91"/>
 <junction x="25.4" y="393.7"/>
 <label x="25.4" y="386.08" size="1.778" layer="95"/>
+<wire x1="25.4" y1="393.7" x2="25.4" y2="386.08" width="0.1524" layer="91"/>
 </segment>
 <segment>
 <pinref part="BEC" gate="G$1" pin="1"/>
 <wire x1="22.86" y1="411.48" x2="24.13" y2="411.48" width="0.1524" layer="91"/>
 <wire x1="24.13" y1="411.48" x2="24.13" y2="408.94" width="0.1524" layer="91"/>
 <label x="24.13" y="408.94" size="1.778" layer="95"/>
-</segment>
-<segment>
-<pinref part="RIGHT_STEP_CONT" gate="G$1" pin="GND"/>
-<wire x1="180.34" y1="416.56" x2="182.88" y2="416.56" width="0.1524" layer="91"/>
-<label x="182.88" y="416.56" size="1.778" layer="95"/>
-</segment>
-<segment>
-<pinref part="RIGHT_STEP_CONT" gate="G$1" pin="GND_"/>
-<wire x1="180.34" y1="401.32" x2="182.88" y2="401.32" width="0.1524" layer="91"/>
-<label x="182.88" y="401.32" size="1.778" layer="95"/>
-</segment>
-<segment>
-<pinref part="LEFT_STEP_CONT" gate="G$1" pin="GND_"/>
-<wire x1="180.34" y1="370.84" x2="182.88" y2="370.84" width="0.1524" layer="91"/>
-<label x="182.88" y="370.84" size="1.778" layer="95"/>
-</segment>
-<segment>
-<pinref part="LEFT_STEP_CONT" gate="G$1" pin="B2"/>
-<pinref part="L_STEP" gate="G$1" pin="1"/>
-<wire x1="180.34" y1="383.54" x2="200.66" y2="383.54" width="0.1524" layer="91"/>
-</segment>
-<segment>
-<pinref part="LEFT_STEP_CONT" gate="G$1" pin="GND"/>
-<wire x1="180.34" y1="386.08" x2="182.88" y2="386.08" width="0.1524" layer="91"/>
-<label x="182.88" y="386.08" size="1.778" layer="95"/>
 </segment>
 <segment>
 <label x="262.89" y="430.53" size="1.778" layer="95"/>
@@ -10673,36 +10632,6 @@ Source: http://www.bourns.com/data/global/PDFs/3223.PDF</description>
 <label x="262.89" y="450.85" size="1.778" layer="95"/>
 <wire x1="266.7" y1="450.85" x2="275.59" y2="450.85" width="0.1524" layer="91"/>
 <pinref part="JP5" gate="G$1" pin="1"/>
-</segment>
-<segment>
-<pinref part="R1" gate="G$1" pin="2"/>
-<wire x1="256.54" y1="372.11" x2="256.54" y2="369.57" width="0.1524" layer="91"/>
-<label x="256.54" y="369.57" size="1.778" layer="95"/>
-</segment>
-<segment>
-<pinref part="R2" gate="G$1" pin="2"/>
-<wire x1="256.54" y1="391.16" x2="256.54" y2="388.62" width="0.1524" layer="91"/>
-<label x="256.54" y="388.62" size="1.778" layer="95"/>
-</segment>
-<segment>
-<pinref part="LEFT_STEP_CONT" gate="G$1" pin="M0"/>
-<wire x1="154.94" y1="386.08" x2="152.4" y2="386.08" width="0.1524" layer="91"/>
-<pinref part="LEFT_STEP_CONT" gate="G$1" pin="M1"/>
-<wire x1="154.94" y1="383.54" x2="152.4" y2="383.54" width="0.1524" layer="91"/>
-<wire x1="152.4" y1="386.08" x2="152.4" y2="383.54" width="0.1524" layer="91"/>
-<wire x1="152.4" y1="383.54" x2="149.86" y2="383.54" width="0.1524" layer="91"/>
-<junction x="152.4" y="383.54"/>
-<label x="147.32" y="383.54" size="1.778" layer="95"/>
-</segment>
-<segment>
-<pinref part="RIGHT_STEP_CONT" gate="G$1" pin="M0"/>
-<wire x1="154.94" y1="416.56" x2="152.4" y2="416.56" width="0.1524" layer="91"/>
-<pinref part="RIGHT_STEP_CONT" gate="G$1" pin="M1"/>
-<wire x1="154.94" y1="414.02" x2="152.4" y2="414.02" width="0.1524" layer="91"/>
-<wire x1="152.4" y1="416.56" x2="152.4" y2="414.02" width="0.1524" layer="91"/>
-<wire x1="152.4" y1="414.02" x2="149.86" y2="414.02" width="0.1524" layer="91"/>
-<junction x="152.4" y="414.02"/>
-<label x="147.32" y="414.02" size="1.778" layer="95"/>
 </segment>
 <segment>
 <pinref part="Q1" gate="G$1" pin="S"/>
@@ -10721,8 +10650,63 @@ Source: http://www.bourns.com/data/global/PDFs/3223.PDF</description>
 </segment>
 <segment>
 <pinref part="Q3" gate="G$1" pin="S"/>
-<wire x1="261.62" y1="645.16" x2="261.62" y2="638.81" width="0.1524" layer="91"/>
-<label x="261.62" y="638.81" size="1.778" layer="95"/>
+<wire x1="175.26" y1="520.7" x2="175.26" y2="514.35" width="0.1524" layer="91"/>
+<label x="175.26" y="514.35" size="1.778" layer="95"/>
+</segment>
+<segment>
+<pinref part="L_BUMP" gate="G$1" pin="3"/>
+<wire x1="271.78" y1="403.86" x2="266.7" y2="403.86" width="0.2032" layer="91"/>
+<label x="266.7" y="403.86" size="1.778" layer="95" rot="R180"/>
+</segment>
+<segment>
+<pinref part="R_BUMP" gate="G$1" pin="3"/>
+<wire x1="271.78" y1="383.54" x2="266.7" y2="383.54" width="0.2032" layer="91"/>
+<label x="266.7" y="383.54" size="1.778" layer="95" rot="R180"/>
+</segment>
+<segment>
+<pinref part="JP7" gate="G$1" pin="3"/>
+<wire x1="93.98" y1="492.76" x2="99.06" y2="492.76" width="0.1524" layer="91"/>
+<label x="99.06" y="492.76" size="1.778" layer="95"/>
+</segment>
+<segment>
+<pinref part="R_STEP_CONT" gate="G$1" pin="GND_"/>
+<wire x1="182.88" y1="337.82" x2="185.42" y2="337.82" width="0.1524" layer="91"/>
+<label x="185.42" y="337.82" size="1.778" layer="95"/>
+</segment>
+<segment>
+<pinref part="R_STEP_CONT" gate="G$1" pin="GND"/>
+<wire x1="182.88" y1="353.06" x2="185.42" y2="353.06" width="0.1524" layer="91"/>
+<label x="185.42" y="353.06" size="1.778" layer="95"/>
+</segment>
+<segment>
+<pinref part="L_STEP_CONT" gate="G$1" pin="GND_"/>
+<wire x1="185.42" y1="307.34" x2="182.88" y2="307.34" width="0.1524" layer="91"/>
+<label x="185.42" y="307.34" size="1.778" layer="95"/>
+</segment>
+<segment>
+<pinref part="R_STEP_CONT" gate="G$1" pin="M0"/>
+<wire x1="157.48" y1="353.06" x2="154.94" y2="353.06" width="0.1524" layer="91"/>
+<pinref part="R_STEP_CONT" gate="G$1" pin="M1"/>
+<wire x1="157.48" y1="350.52" x2="154.94" y2="350.52" width="0.1524" layer="91"/>
+<wire x1="154.94" y1="353.06" x2="154.94" y2="350.52" width="0.1524" layer="91"/>
+<wire x1="154.94" y1="350.52" x2="152.4" y2="350.52" width="0.1524" layer="91"/>
+<junction x="154.94" y="350.52"/>
+<label x="144.78" y="350.52" size="1.778" layer="95"/>
+</segment>
+<segment>
+<pinref part="L_STEP_CONT" gate="G$1" pin="M0"/>
+<wire x1="157.48" y1="322.58" x2="154.94" y2="322.58" width="0.1524" layer="91"/>
+<pinref part="L_STEP_CONT" gate="G$1" pin="M1"/>
+<wire x1="154.94" y1="320.04" x2="157.48" y2="320.04" width="0.1524" layer="91"/>
+<wire x1="154.94" y1="322.58" x2="154.94" y2="320.04" width="0.1524" layer="91"/>
+<wire x1="154.94" y1="320.04" x2="152.4" y2="320.04" width="0.1524" layer="91"/>
+<junction x="154.94" y="320.04"/>
+<label x="144.78" y="320.04" size="1.778" layer="95"/>
+</segment>
+<segment>
+<pinref part="L_STEP_CONT" gate="G$1" pin="GND"/>
+<wire x1="185.42" y1="322.58" x2="182.88" y2="322.58" width="0.1524" layer="91"/>
+<label x="185.42" y="322.58" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="N$23" class="0">
@@ -10776,16 +10760,6 @@ Source: http://www.bourns.com/data/global/PDFs/3223.PDF</description>
 <label x="34.29" y="414.02" size="1.778" layer="95"/>
 </segment>
 <segment>
-<pinref part="LEFT_STEP_CONT" gate="G$1" pin="VMT"/>
-<wire x1="180.34" y1="388.62" x2="182.88" y2="388.62" width="0.1524" layer="91"/>
-<label x="182.88" y="388.62" size="1.778" layer="95"/>
-</segment>
-<segment>
-<pinref part="RIGHT_STEP_CONT" gate="G$1" pin="VMT"/>
-<wire x1="180.34" y1="419.1" x2="182.88" y2="419.1" width="0.1524" layer="91"/>
-<label x="182.88" y="419.1" size="1.778" layer="95"/>
-</segment>
-<segment>
 <label x="204.47" y="504.19" size="1.778" layer="95"/>
 <pinref part="R10" gate="G$1" pin="A"/>
 <wire x1="204.47" y1="502.92" x2="204.47" y2="505.46" width="0.1524" layer="91"/>
@@ -10802,134 +10776,23 @@ Source: http://www.bourns.com/data/global/PDFs/3223.PDF</description>
 </segment>
 <segment>
 <pinref part="SOLENOID" gate="G$1" pin="1"/>
-<wire x1="283.21" y1="652.78" x2="280.67" y2="652.78" width="0.1524" layer="91"/>
-<wire x1="280.67" y1="652.78" x2="280.67" y2="655.32" width="0.1524" layer="91"/>
+<wire x1="196.85" y1="528.32" x2="194.31" y2="528.32" width="0.1524" layer="91"/>
+<wire x1="194.31" y1="528.32" x2="194.31" y2="530.86" width="0.1524" layer="91"/>
 <pinref part="D3" gate="G$1" pin="C"/>
-<wire x1="280.67" y1="655.32" x2="280.67" y2="662.94" width="0.1524" layer="91"/>
-<wire x1="273.05" y1="655.32" x2="280.67" y2="655.32" width="0.1524" layer="91"/>
-<junction x="280.67" y="655.32"/>
-<label x="280.67" y="662.94" size="1.778" layer="95"/>
-</segment>
-</net>
-<net name="N$2" class="0">
-<segment>
-<pinref part="RIGHT_STEP_CONT" gate="G$1" pin="ENA"/>
-<wire x1="154.94" y1="419.1" x2="152.4" y2="419.1" width="0.1524" layer="91"/>
-</segment>
-</net>
-<net name="N$5" class="0">
-<segment>
-<pinref part="RIGHT_STEP_CONT" gate="G$1" pin="CFG"/>
-<wire x1="154.94" y1="411.48" x2="152.4" y2="411.48" width="0.1524" layer="91"/>
-</segment>
-</net>
-<net name="N$6" class="0">
-<segment>
-<pinref part="RIGHT_STEP_CONT" gate="G$1" pin="VREF"/>
-<wire x1="154.94" y1="408.94" x2="152.4" y2="408.94" width="0.1524" layer="91"/>
-</segment>
-</net>
-<net name="N$11" class="0">
-<segment>
-<pinref part="RIGHT_STEP_CONT" gate="G$1" pin="FLT"/>
-<wire x1="180.34" y1="403.86" x2="182.88" y2="403.86" width="0.1524" layer="91"/>
-</segment>
-</net>
-<net name="N$12" class="0">
-<segment>
-<pinref part="RIGHT_STEP_CONT" gate="G$1" pin="A2"/>
-<pinref part="R_STEP" gate="G$1" pin="4"/>
-<wire x1="180.34" y1="406.4" x2="200.66" y2="406.4" width="0.1524" layer="91"/>
-</segment>
-</net>
-<net name="N$13" class="0">
-<segment>
-<pinref part="RIGHT_STEP_CONT" gate="G$1" pin="A1"/>
-<pinref part="R_STEP" gate="G$1" pin="3"/>
-<wire x1="180.34" y1="408.94" x2="200.66" y2="408.94" width="0.1524" layer="91"/>
-</segment>
-</net>
-<net name="N$14" class="0">
-<segment>
-<pinref part="RIGHT_STEP_CONT" gate="G$1" pin="B1"/>
-<pinref part="R_STEP" gate="G$1" pin="2"/>
-<wire x1="180.34" y1="411.48" x2="200.66" y2="411.48" width="0.1524" layer="91"/>
-</segment>
-</net>
-<net name="N$15" class="0">
-<segment>
-<pinref part="RIGHT_STEP_CONT" gate="G$1" pin="B2"/>
-<pinref part="R_STEP" gate="G$1" pin="1"/>
-<wire x1="180.34" y1="414.02" x2="200.66" y2="414.02" width="0.1524" layer="91"/>
-</segment>
-</net>
-<net name="N$18" class="0">
-<segment>
-<pinref part="LEFT_STEP_CONT" gate="G$1" pin="ENA"/>
-<wire x1="154.94" y1="388.62" x2="152.4" y2="388.62" width="0.1524" layer="91"/>
-</segment>
-</net>
-<net name="N$21" class="0">
-<segment>
-<pinref part="LEFT_STEP_CONT" gate="G$1" pin="CFG"/>
-<wire x1="154.94" y1="381" x2="152.4" y2="381" width="0.1524" layer="91"/>
-</segment>
-</net>
-<net name="N$22" class="0">
-<segment>
-<pinref part="LEFT_STEP_CONT" gate="G$1" pin="VREF"/>
-<wire x1="154.94" y1="378.46" x2="152.4" y2="378.46" width="0.1524" layer="91"/>
-</segment>
-</net>
-<net name="N$29" class="0">
-<segment>
-<pinref part="LEFT_STEP_CONT" gate="G$1" pin="FLT"/>
-<wire x1="180.34" y1="373.38" x2="182.88" y2="373.38" width="0.1524" layer="91"/>
-</segment>
-</net>
-<net name="N$30" class="0">
-<segment>
-<pinref part="LEFT_STEP_CONT" gate="G$1" pin="A2"/>
-<pinref part="L_STEP" gate="G$1" pin="4"/>
-<wire x1="180.34" y1="375.92" x2="200.66" y2="375.92" width="0.1524" layer="91"/>
-</segment>
-</net>
-<net name="N$31" class="0">
-<segment>
-<pinref part="LEFT_STEP_CONT" gate="G$1" pin="A1"/>
-<pinref part="L_STEP" gate="G$1" pin="3"/>
-<wire x1="180.34" y1="378.46" x2="200.66" y2="378.46" width="0.1524" layer="91"/>
-</segment>
-</net>
-<net name="N$32" class="0">
-<segment>
-<pinref part="LEFT_STEP_CONT" gate="G$1" pin="B1"/>
-<pinref part="L_STEP" gate="G$1" pin="2"/>
-<wire x1="180.34" y1="381" x2="200.66" y2="381" width="0.1524" layer="91"/>
-</segment>
-</net>
-<net name="VDD(GND)" class="0">
-<segment>
-<pinref part="R_BUMPER" gate="G$1" pin="3"/>
-<wire x1="298.45" y1="401.32" x2="295.91" y2="401.32" width="0.1524" layer="91"/>
-<label x="287.02" y="401.32" size="1.778" layer="95"/>
+<wire x1="194.31" y1="530.86" x2="194.31" y2="538.48" width="0.1524" layer="91"/>
+<wire x1="186.69" y1="530.86" x2="194.31" y2="530.86" width="0.1524" layer="91"/>
+<junction x="194.31" y="530.86"/>
+<label x="194.31" y="538.48" size="1.778" layer="95"/>
 </segment>
 <segment>
-<pinref part="L_BUMPER" gate="G$1" pin="3"/>
-<wire x1="298.45" y1="382.27" x2="295.91" y2="382.27" width="0.1524" layer="91"/>
-<label x="287.02" y="382.27" size="1.778" layer="95"/>
-</segment>
-</net>
-<net name="VSS" class="0">
-<segment>
-<pinref part="L_BUMPER" gate="G$1" pin="2"/>
-<wire x1="295.91" y1="384.81" x2="298.45" y2="384.81" width="0.1524" layer="91"/>
-<label x="294.64" y="384.81" size="1.778" layer="95"/>
+<pinref part="R_STEP_CONT" gate="G$1" pin="VMT"/>
+<wire x1="182.88" y1="355.6" x2="185.42" y2="355.6" width="0.1524" layer="91"/>
+<label x="185.42" y="355.6" size="1.778" layer="95"/>
 </segment>
 <segment>
-<pinref part="R_BUMPER" gate="G$1" pin="2"/>
-<wire x1="295.91" y1="403.86" x2="298.45" y2="403.86" width="0.1524" layer="91"/>
-<label x="294.64" y="403.86" size="1.778" layer="95"/>
+<pinref part="L_STEP_CONT" gate="G$1" pin="VMT"/>
+<wire x1="182.88" y1="325.12" x2="185.42" y2="325.12" width="0.1524" layer="91"/>
+<label x="185.42" y="325.12" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="N$4" class="0">
@@ -10992,22 +10855,129 @@ Source: http://www.bourns.com/data/global/PDFs/3223.PDF</description>
 <segment>
 <pinref part="SOLENOID" gate="G$1" pin="2"/>
 <pinref part="D3" gate="G$1" pin="A"/>
-<wire x1="283.21" y1="650.24" x2="273.05" y2="650.24" width="0.1524" layer="91"/>
+<wire x1="196.85" y1="525.78" x2="186.69" y2="525.78" width="0.1524" layer="91"/>
 <pinref part="Q3" gate="G$1" pin="D"/>
-<wire x1="273.05" y1="650.24" x2="261.62" y2="650.24" width="0.1524" layer="91"/>
-<junction x="273.05" y="650.24"/>
+<wire x1="186.69" y1="525.78" x2="175.26" y2="525.78" width="0.1524" layer="91"/>
+<junction x="186.69" y="525.78"/>
 </segment>
 </net>
 <net name="N$19" class="0">
 <segment>
 <pinref part="Q3" gate="G$1" pin="G"/>
 <pinref part="R9" gate="G$1" pin="2"/>
-<wire x1="251.46" y1="645.16" x2="242.57" y2="645.16" width="0.1524" layer="91"/>
+<wire x1="165.1" y1="520.7" x2="156.21" y2="520.7" width="0.1524" layer="91"/>
+</segment>
+</net>
+<net name="N$3" class="0">
+<segment>
+<pinref part="R_STEP_CONT" gate="G$1" pin="B2"/>
+<pinref part="R_STEPPER" gate="G$1" pin="1"/>
+<wire x1="182.88" y1="350.52" x2="200.66" y2="350.52" width="0.1524" layer="91"/>
+</segment>
+</net>
+<net name="N$27" class="0">
+<segment>
+<pinref part="R_STEP_CONT" gate="G$1" pin="B1"/>
+<pinref part="R_STEPPER" gate="G$1" pin="2"/>
+<wire x1="182.88" y1="347.98" x2="200.66" y2="347.98" width="0.1524" layer="91"/>
+</segment>
+</net>
+<net name="N$28" class="0">
+<segment>
+<pinref part="R_STEPPER" gate="G$1" pin="3"/>
+<pinref part="R_STEP_CONT" gate="G$1" pin="A1"/>
+<wire x1="200.66" y1="345.44" x2="182.88" y2="345.44" width="0.1524" layer="91"/>
+</segment>
+</net>
+<net name="N$30" class="0">
+<segment>
+<pinref part="R_STEP_CONT" gate="G$1" pin="A2"/>
+<pinref part="R_STEPPER" gate="G$1" pin="4"/>
+<wire x1="182.88" y1="342.9" x2="200.66" y2="342.9" width="0.1524" layer="91"/>
+</segment>
+</net>
+<net name="N$32" class="0">
+<segment>
+<pinref part="L_STEPPER" gate="G$1" pin="2"/>
+<pinref part="L_STEP_CONT" gate="G$1" pin="B1"/>
+<wire x1="200.66" y1="317.5" x2="182.88" y2="317.5" width="0.1524" layer="91"/>
+</segment>
+</net>
+<net name="N$33" class="0">
+<segment>
+<pinref part="L_STEP_CONT" gate="G$1" pin="A1"/>
+<pinref part="L_STEPPER" gate="G$1" pin="3"/>
+<wire x1="182.88" y1="314.96" x2="200.66" y2="314.96" width="0.1524" layer="91"/>
+</segment>
+</net>
+<net name="N$34" class="0">
+<segment>
+<pinref part="L_STEP_CONT" gate="G$1" pin="A2"/>
+<pinref part="L_STEPPER" gate="G$1" pin="4"/>
+<wire x1="182.88" y1="312.42" x2="200.66" y2="312.42" width="0.1524" layer="91"/>
+</segment>
+</net>
+<net name="N$36" class="0">
+<segment>
+<pinref part="R_STEP_CONT" gate="G$1" pin="FLT"/>
+<wire x1="185.42" y1="340.36" x2="182.88" y2="340.36" width="0.1524" layer="91"/>
+</segment>
+</net>
+<net name="N$39" class="0">
+<segment>
+<pinref part="R_STEP_CONT" gate="G$1" pin="ENA"/>
+<wire x1="157.48" y1="355.6" x2="154.94" y2="355.6" width="0.1524" layer="91"/>
+</segment>
+</net>
+<net name="N$42" class="0">
+<segment>
+<pinref part="R_STEP_CONT" gate="G$1" pin="CFG"/>
+<wire x1="157.48" y1="347.98" x2="154.94" y2="347.98" width="0.1524" layer="91"/>
+</segment>
+</net>
+<net name="N$43" class="0">
+<segment>
+<pinref part="R_STEP_CONT" gate="G$1" pin="VREF"/>
+<wire x1="157.48" y1="345.44" x2="154.94" y2="345.44" width="0.1524" layer="91"/>
+</segment>
+</net>
+<net name="N$47" class="0">
+<segment>
+<pinref part="L_STEP_CONT" gate="G$1" pin="ENA"/>
+<wire x1="157.48" y1="325.12" x2="154.94" y2="325.12" width="0.1524" layer="91"/>
+</segment>
+</net>
+<net name="N$50" class="0">
+<segment>
+<pinref part="L_STEP_CONT" gate="G$1" pin="CFG"/>
+<wire x1="154.94" y1="317.5" x2="157.48" y2="317.5" width="0.1524" layer="91"/>
+</segment>
+</net>
+<net name="N$51" class="0">
+<segment>
+<pinref part="L_STEP_CONT" gate="G$1" pin="VREF"/>
+<wire x1="157.48" y1="314.96" x2="154.94" y2="314.96" width="0.1524" layer="91"/>
+</segment>
+</net>
+<net name="N$57" class="0">
+<segment>
+<pinref part="L_STEP_CONT" gate="G$1" pin="FLT"/>
+<wire x1="182.88" y1="309.88" x2="185.42" y2="309.88" width="0.1524" layer="91"/>
+</segment>
+</net>
+<net name="N$2" class="0">
+<segment>
+<pinref part="L_STEP_CONT" gate="G$1" pin="B2"/>
+<pinref part="L_STEPPER" gate="G$1" pin="1"/>
+<wire x1="182.88" y1="320.04" x2="200.66" y2="320.04" width="0.1524" layer="91"/>
 </segment>
 </net>
 </nets>
 </sheet>
 </sheets>
+<errors>
+<approved hash="108,1,88.9,398.78,VDD,,,,,"/>
+</errors>
 </schematic>
 </drawing>
 </eagle>
